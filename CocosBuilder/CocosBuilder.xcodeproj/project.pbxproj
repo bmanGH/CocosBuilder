@@ -1831,7 +1831,6 @@
 		E3E0557A159B8466001066C5 /* seq-keyframe-easein.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-keyframe-easein.png"; sourceTree = "<group>"; };
 		E3E0557B159B8466001066C5 /* seq-keyframe-easeout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-keyframe-easeout.png"; sourceTree = "<group>"; };
 		E3E0557C159B8466001066C5 /* seq-keyframe-interpol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-keyframe-interpol.png"; sourceTree = "<group>"; };
-		E3E0876515669080008F1FDB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3E0878C15669F48008F1FDB /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		E3E0878F15669FA2008F1FDB /* libffi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libffi.dylib; path = usr/lib/libffi.dylib; sourceTree = SDKROOT; };
 		E3E2704615B18CF500287470 /* TB_play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TB_play.png; sourceTree = "<group>"; };
@@ -2796,7 +2795,6 @@
 				E380B24A1642FC240006D31C /* Tupac */,
 				E35A134E15B038D700C9AA15 /* ThoMoNetworking */,
 				E3F541BA15AED66D00EAAFBD /* Fragaria */,
-				E3E087611566907F008F1FDB /* JSCocoa */,
 				E32BBCAA156135C300C58395 /* HashValue */,
 				06DD539218CDD508008A1AA3 /* cocos2d */,
 				E383BF68152478940032F371 /* CCScrollView */,
@@ -4005,15 +4003,6 @@
 				E3DEF5B8169B35DF00B9DCF4 /* lame-COPYING */,
 			);
 			name = Lame;
-			sourceTree = "<group>";
-		};
-		E3E087611566907F008F1FDB /* JSCocoa */ = {
-			isa = PBXGroup;
-			children = (
-				E3E0876515669080008F1FDB /* Info.plist */,
-			);
-			name = JSCocoa;
-			path = "cocos2d-iphone/external/JSCocoa";
 			sourceTree = "<group>";
 		};
 		E3E8D64316B3128600742107 /* Ogg compression */ = {
