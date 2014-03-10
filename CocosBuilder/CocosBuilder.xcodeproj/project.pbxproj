@@ -96,6 +96,7 @@
 		06DD54B918CDD509008A1AA3 /* TGAlib.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD545C18CDD509008A1AA3 /* TGAlib.m */; };
 		06DD54BA18CDD509008A1AA3 /* TransformUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD545E18CDD509008A1AA3 /* TransformUtils.m */; };
 		06DD54BB18CDD509008A1AA3 /* ZipUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD546218CDD509008A1AA3 /* ZipUtils.m */; };
+		06DD54C818CE363F008A1AA3 /* select-corner.png in Resources */ = {isa = PBXBuildFile; fileRef = 06DD54C718CE363F008A1AA3 /* select-corner.png */; };
 		581130601639C52500A86D70 /* seq-startmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5811305F1639C52000A86D70 /* seq-startmarker.png */; };
 		581BCFE8162DADE7007DE600 /* CCBSplitHorizontalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 581BCFE7162DADE7007DE600 /* CCBSplitHorizontalView.m */; };
 		58FA2034162D73F3006B8856 /* TB_bottomPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FA2031162D73F3006B8856 /* TB_bottomPanel.png */; };
@@ -1070,6 +1071,7 @@
 		06DD546018CDD509008A1AA3 /* utlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utlist.h; sourceTree = "<group>"; };
 		06DD546118CDD509008A1AA3 /* ZipUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipUtils.h; sourceTree = "<group>"; };
 		06DD546218CDD509008A1AA3 /* ZipUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZipUtils.m; sourceTree = "<group>"; };
+		06DD54C718CE363F008A1AA3 /* select-corner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "select-corner.png"; sourceTree = "<group>"; };
 		5811305E1639BF1200A86D70 /* SequencerTimelineDrawDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerTimelineDrawDelegate.h; sourceTree = "<group>"; };
 		5811305F1639C52000A86D70 /* seq-startmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-startmarker.png"; sourceTree = "<group>"; };
 		581BCFE6162DADE7007DE600 /* CCBSplitHorizontalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSplitHorizontalView.h; sourceTree = "<group>"; };
@@ -2562,6 +2564,7 @@
 				774E4EBF136D98AB0025D0A8 /* select-pt.png */,
 				774E4EC0136D98AB0025D0A8 /* select-tl.png */,
 				774E4EC1136D98AB0025D0A8 /* select-tr.png */,
+				06DD54C718CE363F008A1AA3 /* select-corner.png */,
 				774F95C513638D74005D43EB /* missing-particle-texture.png */,
 				772BE566133E40D60009B5B9 /* missing-texture.png */,
 			);
@@ -4557,6 +4560,7 @@
 				E3FEA8C014E49D8300119FBE /* InspectorInteger.xib in Resources */,
 				E3B4221314E4A350004547D6 /* InspectorCheck.xib in Resources */,
 				E3B4221814E4BE6B004547D6 /* InspectorSpriteFrame.xib in Resources */,
+				06DD54C818CE363F008A1AA3 /* select-corner.png in Resources */,
 				E3B4221D14E58C35004547D6 /* InspectorByte.xib in Resources */,
 				E3B4222214E58FEE004547D6 /* InspectorColor3.xib in Resources */,
 				E3B4222714E5992F004547D6 /* InspectorFlip.xib in Resources */,

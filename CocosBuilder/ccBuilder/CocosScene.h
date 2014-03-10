@@ -51,12 +51,19 @@ enum {
     kCCBTransformHandleScale,
     kCCBTransformHandleRotate,
     kCCBTransformHandleAnchorPoint,
+    kCCBTransformHandleSkew,
 };
 
-enum {
-    kCCBToolSelection = 0,
-    kCCBToolGrab
-};
+typedef enum {
+    kCCBToolAnchor      =(1 << 0),
+    kCCBToolTranslate   =(1 << 1),
+    kCCBToolScale       =(1 << 2),
+    kCCBToolGrab        =(1 << 3),
+    kCCBToolSkew        =(1 << 4),
+    kCCBToolRotate      =(1 << 5),
+    kCCBToolSelection   =(1 << 6),
+    kCCBToolMax         =(1 << 7)
+} CCBTool;
 
 @interface CocosScene : CCLayer
 {
@@ -82,6 +89,8 @@ enum {
     float transformStartRotation;
     float transformStartScaleX;
     float transformStartScaleY;
+    float transformStartSkewX;
+    float transformStartSkewY;
     CCNode* transformScalingNode;
     //CGPoint transformStartPosition;
     int currentMouseTransform;
@@ -107,6 +116,10 @@ enum {
     float stageZoom;
     
     int currentTool;
+    CGPoint skewSegmentOrientation;
+    int     skewSegment;
+    CGPoint cornerOrientation;//which way is the corner facing.
+    int     cornerIndex;//Which corner of the object are we rotating?
 }
 
 @property (nonatomic,assign) CCNode* rootNode;
