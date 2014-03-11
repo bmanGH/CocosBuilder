@@ -13,14 +13,6 @@
 	<key>propertiesOverridden</key>
 	<array>
 		<dict>
-			<key>type</key>
-			<string>Float</string>
-			<key>name</key>
-			<string>scale</string>
-			<key>displayName</key>
-			<string>Scale</string>
-		</dict>
-		<dict>
 			<key>default</key>
 			<array>
 				<integer>100</integer>
