@@ -150,6 +150,14 @@
 			<key>displayName</key>
 			<string>Bottom</string>
 		</dict>
+		<dict>
+			<key>displayName</key>
+			<string>Tiled</string>
+			<key>type</key>
+			<string>Check</string>
+			<key>name</key>
+			<string>tiled</string>
+		</dict>
 	</array>
 </dict>
 </plist>
