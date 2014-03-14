@@ -1509,6 +1509,17 @@ static CocosScene* sharedCocosScene;
             propName = @"position";
             type = kCCBKeyframeTypePosition;
         }
+        else if (currentMouseTransform == kCCBTransformHandleSkew)
+        {
+            float sx = selectedNode.skewX;
+            float sy = selectedNode.skewY;
+            value = [NSArray arrayWithObjects:
+                     [NSNumber numberWithFloat:sx],
+                     [NSNumber numberWithFloat:sy],
+                     nil];
+            propName = @"skew";
+            type = kCCBKeyframeTypeFloatXY;
+        }
         
         if (value)
         {

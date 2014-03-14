@@ -3519,10 +3519,11 @@ static BOOL hideAllToNextSeparator;
     else if (tag == 1) return @"position";
     else if (tag == 2) return @"scale";
     else if (tag == 3) return @"rotation";
-    else if (tag == 4) return @"displayFrame";
-    else if (tag == 5) return @"opacity";
-    else if (tag == 6) return @"color";
-    else return NULL;
+    else if (tag == 4) return @"skew";
+    else if (tag == 5) return @"displayFrame";
+    else if (tag == 6) return @"opacity";
+    else if (tag == 7) return @"color";
+    else return nil;
 }
 
 - (IBAction)menuAddKeyframe:(id)sender

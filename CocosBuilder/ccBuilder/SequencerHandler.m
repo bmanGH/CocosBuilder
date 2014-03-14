@@ -873,7 +873,6 @@ static SequencerHandler* sharedSequencerHandler;
     
     if ([node shouldDisableProperty:prop]) return NO;
     
-
     return [[node.plugIn animatablePropertiesForNode:node] containsObject:prop];
 }
 
