@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06211BC718D830A900898506 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789ABC2133AA82000CEFCC7 /* Cocoa.framework */; };
+		06211BDD18D830D400898506 /* CCBEXUILayer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06211BD518D830D400898506 /* CCBEXUILayer-Info.plist */; };
+		06211BDE18D830D400898506 /* CCBPEXUILayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 06211BD818D830D400898506 /* CCBPEXUILayer.m */; };
+		06211BDF18D830D400898506 /* CCBPProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06211BD918D830D400898506 /* CCBPProperties.plist */; };
+		06211BE018D830D400898506 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06211BDA18D830D400898506 /* InfoPlist.strings */; };
+		06211BE118D830D400898506 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06211BDC18D830D400898506 /* Icon.png */; };
+		06211BE418D8312D00898506 /* CCBEXUILayer.ccbPlugNode in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 06211BD018D830A900898506 /* CCBEXUILayer.ccbPlugNode */; };
 		0645214A18D318A50094CF05 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789ABC2133AA82000CEFCC7 /* Cocoa.framework */; };
 		0645215918D318B50094CF05 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789ABC2133AA82000CEFCC7 /* Cocoa.framework */; };
 		0645216B18D31D470094CF05 /* CCBEXEditBox-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0645216518D31D470094CF05 /* CCBEXEditBox-Info.plist */; };
@@ -687,6 +694,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		06211BE218D8311900898506 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7789ABB5133AA82000CEFCC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06211BC318D830A900898506;
+			remoteInfo = CCBEXUILayer;
+		};
 		0645217A18D31D6C0094CF05 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7789ABB5133AA82000CEFCC7 /* Project object */;
@@ -862,6 +876,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				06211BE418D8312D00898506 /* CCBEXUILayer.ccbPlugNode in Copy PlugIns */,
 				0645217F18D31D850094CF05 /* CCBEXTextField.ccbPlugNode in Copy PlugIns */,
 				0645217E18D31D7F0094CF05 /* CCBEXEditBox.ccbPlugNode in Copy PlugIns */,
 				E3FCE874152485A20028E8E7 /* CCScrollView.ccbPlugNode in Copy PlugIns */,
@@ -897,6 +912,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06211BD018D830A900898506 /* CCBEXUILayer.ccbPlugNode */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBEXUILayer.ccbPlugNode; sourceTree = BUILT_PRODUCTS_DIR; };
+		06211BD118D830A900898506 /* CCBEXTextField copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CCBEXTextField copy-Info.plist"; path = "/Users/bman/Desktop/project/CocosBuilder/CocosBuilder/CCBEXTextField copy-Info.plist"; sourceTree = "<absolute>"; };
+		06211BD518D830D400898506 /* CCBEXUILayer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CCBEXUILayer-Info.plist"; sourceTree = "<group>"; };
+		06211BD618D830D400898506 /* CCBEXUILayer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCBEXUILayer-Prefix.pch"; sourceTree = "<group>"; };
+		06211BD718D830D400898506 /* CCBPEXUILayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPEXUILayer.h; sourceTree = "<group>"; };
+		06211BD818D830D400898506 /* CCBPEXUILayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXUILayer.m; sourceTree = "<group>"; };
+		06211BD918D830D400898506 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
+		06211BDB18D830D400898506 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06211BDC18D830D400898506 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		0645215218D318A50094CF05 /* CCBEXEditBox.ccbPlugNode */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBEXEditBox.ccbPlugNode; sourceTree = BUILT_PRODUCTS_DIR; };
 		0645216118D318B50094CF05 /* CCBEXTextField.ccbPlugNode */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBEXTextField.ccbPlugNode; sourceTree = BUILT_PRODUCTS_DIR; };
 		0645216518D31D470094CF05 /* CCBEXEditBox-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CCBEXEditBox-Info.plist"; sourceTree = "<group>"; };
@@ -1970,6 +1994,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		06211BC618D830A900898506 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06211BC718D830A900898506 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0645214918D318A50094CF05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2151,11 +2183,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06211BD418D830D400898506 /* CCBEXUILayer */ = {
+			isa = PBXGroup;
+			children = (
+				06211BD518D830D400898506 /* CCBEXUILayer-Info.plist */,
+				06211BD618D830D400898506 /* CCBEXUILayer-Prefix.pch */,
+				06211BD718D830D400898506 /* CCBPEXUILayer.h */,
+				06211BD818D830D400898506 /* CCBPEXUILayer.m */,
+				06211BD918D830D400898506 /* CCBPProperties.plist */,
+				06211BDA18D830D400898506 /* InfoPlist.strings */,
+				06211BDC18D830D400898506 /* Icon.png */,
+			);
+			path = CCBEXUILayer;
+			sourceTree = "<group>";
+		};
 		0645216318D31D470094CF05 /* CCBEX */ = {
 			isa = PBXGroup;
 			children = (
 				0645216418D31D470094CF05 /* CCBEXEditBox */,
 				0645216F18D31D590094CF05 /* CCBEXTextField */,
+				06211BD418D830D400898506 /* CCBEXUILayer */,
 			);
 			path = CCBEX;
 			sourceTree = "<group>";
@@ -2776,6 +2823,7 @@
 				FA98CFC5154E7D1C006E58C5 /* ccbpublish */,
 				7789ABC1133AA82000CEFCC7 /* Frameworks */,
 				7789ABBF133AA82000CEFCC7 /* Products */,
+				06211BD118D830A900898506 /* CCBEXTextField copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2802,6 +2850,7 @@
 				FA98CFC1154E7D1C006E58C5 /* ccbpublish */,
 				0645215218D318A50094CF05 /* CCBEXEditBox.ccbPlugNode */,
 				0645216118D318B50094CF05 /* CCBEXTextField.ccbPlugNode */,
+				06211BD018D830A900898506 /* CCBEXUILayer.ccbPlugNode */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4200,6 +4249,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		06211BC318D830A900898506 /* CCBEXUILayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06211BCD18D830A900898506 /* Build configuration list for PBXNativeTarget "CCBEXUILayer" */;
+			buildPhases = (
+				06211BC418D830A900898506 /* Sources */,
+				06211BC618D830A900898506 /* Frameworks */,
+				06211BC818D830A900898506 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CCBEXUILayer;
+			productName = CCSprite;
+			productReference = 06211BD018D830A900898506 /* CCBEXUILayer.ccbPlugNode */;
+			productType = "com.apple.product-type.bundle";
+		};
 		0645214718D318A50094CF05 /* CCBEXEditBox */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0645214F18D318A50094CF05 /* Build configuration list for PBXNativeTarget "CCBEXEditBox" */;
@@ -4249,6 +4315,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				06211BE318D8311900898506 /* PBXTargetDependency */,
 				0645217D18D31D710094CF05 /* PBXTargetDependency */,
 				0645217B18D31D6C0094CF05 /* PBXTargetDependency */,
 				E3F541CE15AED85800EAAFBD /* PBXTargetDependency */,
@@ -4609,6 +4676,7 @@
 				FA98CFC0154E7D1C006E58C5 /* ccbpublish */,
 				0645214718D318A50094CF05 /* CCBEXEditBox */,
 				0645215618D318B50094CF05 /* CCBEXTextField */,
+				06211BC318D830A900898506 /* CCBEXUILayer */,
 			);
 		};
 /* End PBXProject section */
@@ -4638,6 +4706,17 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		06211BC818D830A900898506 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06211BE118D830D400898506 /* Icon.png in Resources */,
+				06211BDD18D830D400898506 /* CCBEXUILayer-Info.plist in Resources */,
+				06211BE018D830D400898506 /* InfoPlist.strings in Resources */,
+				06211BDF18D830D400898506 /* CCBPProperties.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0645214B18D318A50094CF05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5082,6 +5161,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		06211BC418D830A900898506 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06211BDE18D830D400898506 /* CCBPEXUILayer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0645214818D318A50094CF05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5553,6 +5640,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		06211BE318D8311900898506 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06211BC318D830A900898506 /* CCBEXUILayer */;
+			targetProxy = 06211BE218D8311900898506 /* PBXContainerItemProxy */;
+		};
 		0645217B18D31D6C0094CF05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0645214718D318A50094CF05 /* CCBEXEditBox */;
@@ -5651,6 +5743,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		06211BDA18D830D400898506 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06211BDB18D830D400898506 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		0645216818D31D470094CF05 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5822,6 +5922,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		06211BCE18D830A900898506 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCBEX/CCBEXTextField/CCBEXTextField-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "CCBEXTextField copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = CCBEXUILayer;
+				WRAPPER_EXTENSION = ccbPlugNode;
+			};
+			name = Debug;
+		};
+		06211BCF18D830A900898506 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCBEX/CCBEXTextField/CCBEXTextField-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "CCBEXTextField copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = CCBEXUILayer;
+				WRAPPER_EXTENSION = ccbPlugNode;
+			};
+			name = Release;
+		};
 		0645215018D318A50094CF05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -6887,6 +7037,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		06211BCD18D830A900898506 /* Build configuration list for PBXNativeTarget "CCBEXUILayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06211BCE18D830A900898506 /* Debug */,
+				06211BCF18D830A900898506 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		0645214F18D318A50094CF05 /* Build configuration list for PBXNativeTarget "CCBEXEditBox" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

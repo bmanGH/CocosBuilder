@@ -9,7 +9,7 @@
 	<key>canBeRootNode</key>
 	<false/>
 	<key>className</key>
-	<string>CCBEX::TextField</string>
+	<string>CCTextField</string>
 	<key>editorClassName</key>
 	<string>CCBPEXTextField</string>
 	<key>propertiesOverridden</key>

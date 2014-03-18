@@ -9,7 +9,7 @@
 	<key>canBeRootNode</key>
 	<false/>
 	<key>className</key>
-	<string>CCBEX::EditBox</string>
+	<string>CCEditBox</string>
 	<key>editorClassName</key>
 	<string>CCBPEXEditBox</string>
 	<key>propertiesOverridden</key>
