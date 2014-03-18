@@ -43,15 +43,6 @@
 		</dict>
 		<dict>
 			<key>groupName</key>
-			<string>TextField</string>
-			<key>plugIns</key>
-			<array>
-				<string>CCBEX::TextField</string>
-				<string>CCBEX::EditBox</string>
-			</array>
-		</dict>
-		<dict>
-			<key>groupName</key>
 			<string>Menu</string>
 			<key>plugIns</key>
 			<array>

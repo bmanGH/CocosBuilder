@@ -227,10 +227,23 @@ static CocosBuilderAppDelegate* sharedAppDelegate;
     
     // Setup preview
     previewViewOwner = [[ResourceManagerPreviewView alloc] init];
+
+    // USE 10.8 API
+//    NSArray* topLevelObjs = NULL;
+//    [[NSBundle mainBundle] loadNibNamed:@"ResourceManagerPreviewView" owner:previewViewOwner topLevelObjects:&topLevelObjs];
     
-    NSArray* topLevelObjs = NULL;
-    [[NSBundle mainBundle] loadNibNamed:@"ResourceManagerPreviewView" owner:previewViewOwner topLevelObjects:&topLevelObjs];
+    // * USE 10.7 API
+    NSNib* aNib = [[NSNib alloc] initWithNibNamed:@"ResourceManagerPreviewView" bundle:[NSBundle mainBundle]];
+    NSArray* topLevelObjs = nil;
+    if (![aNib instantiateNibWithOwner:previewViewOwner topLevelObjects:&topLevelObjs])
+    {
+        NSLog(@"Warning! Could not load ResourceManagerPreviewView nib file.");
+        return;
+    }
+    [aNib release];
+    [topLevelObjs makeObjectsPerformSelector:@selector(release)];
     
+    // Find the preview view
     for (id obj in topLevelObjs)
     {
         if ([obj isKindOfClass:[NSView class]])
