@@ -43,15 +43,6 @@
 		</dict>
 		<dict>
 			<key>groupName</key>
-			<string>Menu</string>
-			<key>plugIns</key>
-			<array>
-				<string>CCMenu</string>
-				<string>CCMenuItemImage</string>
-			</array>
-		</dict>
-		<dict>
-			<key>groupName</key>
 			<string>Control</string>
 			<key>plugIns</key>
 			<array>

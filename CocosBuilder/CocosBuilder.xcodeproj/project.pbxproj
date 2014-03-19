@@ -3471,7 +3471,6 @@
 				E35392791518D78D00471721 /* CCScale9Sprite */,
 				E3C65118151BB89500D639C0 /* CCControl */,
 				E3B84C3B151A2C02004B743C /* CCControlButton */,
-				0645216318D31D470094CF05 /* CCBEX */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -3861,6 +3860,7 @@
 			children = (
 				E35392461518AD0A00471721 /* Core */,
 				E35392481518AD4100471721 /* Extensions */,
+				0645216318D31D470094CF05 /* CCBEX */,
 			);
 			name = "PlugIns (Nodes)";
 			sourceTree = "<group>";
@@ -6140,6 +6140,7 @@
 					"\"$(SRCROOT)/libs/Tupac\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = CocosBuilder;
 				WRAPPER_EXTENSION = app;
 			};
@@ -6177,6 +6178,7 @@
 					"\"$(SRCROOT)/libs/Tupac\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_NAME = CocosBuilder;
 				WRAPPER_EXTENSION = app;
 			};

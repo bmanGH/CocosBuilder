@@ -26,7 +26,7 @@
 			<key>defaultSerialization</key>
 			<false/>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>dontSetInEditor</key>
 			<true/>
 			<key>platform</key>
@@ -58,7 +58,7 @@
 			<key>defaultSerialization</key>
 			<false/>
 			<key>default</key>
-			<true/>
+			<false/>
 			<key>dontSetInEditor</key>
 			<true/>
 			<key>platform</key>
@@ -90,7 +90,32 @@
 	<key>editorClassName</key>
 	<string>CCLayer</string>
 	<key>propertiesOverridden</key>
-	<array/>
+	<array>
+		<dict>
+			<key>dontSetInEditor</key>
+			<true/>
+			<key>readOnly</key>
+			<true/>
+			<key>type</key>
+			<string>Point</string>
+			<key>name</key>
+			<string>anchorPoint</string>
+			<key>displayName</key>
+			<string>Anchor point</string>
+		</dict>
+		<dict>
+			<key>dontSetInEditor</key>
+			<true/>
+			<key>readOnly</key>
+			<true/>
+			<key>type</key>
+			<string>Check</string>
+			<key>name</key>
+			<string>ignoreAnchorPointForPosition</string>
+			<key>displayName</key>
+			<string>Ignore anchor point</string>
+		</dict>
+	</array>
 	<key>spriteFrameDrop</key>
 	<dict>
 		<key>className</key>

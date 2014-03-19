@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>inheritsFrom</key>
-	<string>CCLayer</string>
+	<string>CCNode</string>
 	<key>canHaveChildren</key>
 	<true/>
 	<key>canBeRootNode</key>
@@ -20,59 +20,23 @@
 			<key>readOnly</key>
 			<true/>
 			<key>type</key>
+			<string>Point</string>
+			<key>name</key>
+			<string>anchorPoint</string>
+			<key>displayName</key>
+			<string>Anchor point</string>
+		</dict>
+		<dict>
+			<key>dontSetInEditor</key>
+			<true/>
+			<key>readOnly</key>
+			<true/>
+			<key>type</key>
 			<string>Check</string>
 			<key>name</key>
 			<string>ignoreAnchorPointForPosition</string>
 			<key>displayName</key>
 			<string>Ignore anchor point</string>
-		</dict>
-		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
-			<key>readOnly</key>
-			<true/>
-			<key>type</key>
-			<string>Check</string>
-			<key>name</key>
-			<string>touchEnabled</string>
-			<key>displayName</key>
-			<string>Touch enabled</string>
-		</dict>
-		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
-			<key>readOnly</key>
-			<true/>
-			<key>type</key>
-			<string>Check</string>
-			<key>name</key>
-			<string>accelerometerEnabled</string>
-			<key>displayName</key>
-			<string>Accelerometer enabled</string>
-		</dict>
-		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
-			<key>readOnly</key>
-			<true/>
-			<key>type</key>
-			<string>Check</string>
-			<key>name</key>
-			<string>mouseEnabled</string>
-			<key>displayName</key>
-			<string>Mouse enabled</string>
-		</dict>
-		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
-			<key>readOnly</key>
-			<true/>
-			<key>type</key>
-			<string>Check</string>
-			<key>name</key>
-			<string>keyboardEnabled</string>
-			<key>displayName</key>
-			<string>Keyboard enabled</string>
 		</dict>
 		<dict>
 			<key>default</key>
