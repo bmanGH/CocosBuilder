@@ -34,8 +34,7 @@
         [self setTextColor: [NSColor disabledControlTextColor]];
     } else {
         [self setTextColor: [NSColor controlTextColor]];
-    }
-    
+    }    
 }
 
 @end
