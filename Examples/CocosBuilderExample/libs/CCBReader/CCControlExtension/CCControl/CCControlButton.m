@@ -204,7 +204,7 @@ enum
         for (id key in backgroundSpriteDispatchTable_)
         {
             CCScale9Sprite* sprite = [backgroundSpriteDispatchTable_ objectForKey:key];
-            [sprite setPreferedSize:preferedSize];
+            sprite.contentSize = preferedSize;
         }
     }
     
@@ -431,10 +431,10 @@ enum
         if (CGSizeEqualToSize(oldPreferedSize, preferedSize_))
         {
             // Force update of preferred size
-            [sprite setPreferedSize:CGSizeMake(oldPreferedSize.width+1, oldPreferedSize.height+1)];
+            sprite.contentSize = CGSizeMake(oldPreferedSize.width+1, oldPreferedSize.height+1);
         }
         
-        [sprite setPreferedSize:preferedSize_];
+        sprite.contentSize = preferedSize_;
     }
     
     // If the current state if equal to the given state we update the layout
@@ -492,18 +492,18 @@ enum
          CGSizeMake(titleLabelSize.width + CCControlButtonMarginLR * 2, titleLabelSize.height + CCControlButtonMarginTB * 2)];
     } else
     {
-        CGSize preferedSize     = [backgroundSprite_ preferedSize];
+        CGSize contentSize     = [backgroundSprite_ contentSize];
 
-        if (preferedSize.width <= 0)
+        if (contentSize.width <= 0)
         {
-            preferedSize.width = titleLabelSize.width;
+            contentSize.width = titleLabelSize.width;
         }
-        if (preferedSize.height <= 0)
+        if (contentSize.height <= 0)
         {
-            preferedSize.height = titleLabelSize.height;
+            contentSize.height = titleLabelSize.height;
         }
         
-        [backgroundSprite_ setContentSize:preferedSize];
+        [backgroundSprite_ setContentSize:contentSize];
     }
     
     // Set the content size

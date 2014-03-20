@@ -11,31 +11,7 @@
 	<key>editorClassName</key>
 	<string>CCBScale9Sprite</string>
 	<key>propertiesOverridden</key>
-	<array>
-		<dict>
-			<key>defaultSerialization</key>
-			<array>
-				<integer>0</integer>
-				<integer>0</integer>
-			</array>
-			<key>type</key>
-			<string>Point</string>
-			<key>name</key>
-			<string>anchorPoint</string>
-			<key>displayName</key>
-			<string>Anchor point</string>
-		</dict>
-		<dict>
-			<key>readOnly</key>
-			<true/>
-			<key>type</key>
-			<string>Size</string>
-			<key>name</key>
-			<string>contentSize</string>
-			<key>displayName</key>
-			<string>Content size</string>
-		</dict>
-	</array>
+	<array/>
 	<key>properties</key>
 	<array>
 		<dict>
@@ -71,18 +47,6 @@
 			<string>SpriteFrame</string>
 			<key>name</key>
 			<string>spriteFrame</string>
-		</dict>
-		<dict>
-			<key>affectsProperties</key>
-			<array>
-				<string>contentSize</string>
-			</array>
-			<key>type</key>
-			<string>Size</string>
-			<key>name</key>
-			<string>preferedSize</string>
-			<key>displayName</key>
-			<string>Preferred size</string>
 		</dict>
 		<dict>
 			<key>animatable</key>

@@ -98,8 +98,8 @@
     zoom = zm;
     
     // Resize backrounds
-    bgHorizontal.preferedSize = CGSizeMake(winSize.width, kCCBRulerWidth);
-    bgVertical.preferedSize = CGSizeMake(kCCBRulerWidth, winSize.height);
+    bgHorizontal.contentSize = CGSizeMake(winSize.width, kCCBRulerWidth);
+    bgVertical.contentSize = CGSizeMake(kCCBRulerWidth, winSize.height);
     
     // Add marks and numbers
     [marksVertical removeAllChildrenWithCleanup:YES];

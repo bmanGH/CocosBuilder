@@ -15,7 +15,6 @@
 @end
 
 @implementation CCScale9Sprite
-@synthesize originalSize        = originalSize_;
 @synthesize capInsets           = capInsets_;
 @synthesize opacity             = opacity_;
 @synthesize color               = color_;
@@ -24,7 +23,6 @@
 @synthesize insetLeft           = insetLeft_;
 @synthesize insetBottom         = insetBottom_;
 @synthesize insetRight          = insetRight_;
-@synthesize preferedSize        = preferedSize_;
 @synthesize tiled               = tiled_;
 
 - (void)dealloc
@@ -207,10 +205,7 @@
         rect                = CGRectMake(0, 0, textureSize.width, textureSize.height);
     }
     
-    // Set the given rect's size as original size
     spriteRect          = rect;
-    originalSize_       = rect.size;
-    preferedSize_       = originalSize_;
     capInsetsInternal_  = capInsets;
     
     // Get the image edges
@@ -411,8 +406,12 @@
                            ];
     }
     
-    [self setContentSize:rect.size];
     [self addChild:scale9Image];
+    
+    if (CGSizeEqualToSize(self.contentSize, CGSizeZero)) {
+        [self setContentSize:rect.size];
+    }
+    positionsAreDirty_  = YES;
     
     if (spritesGenerated_)
     {
@@ -625,12 +624,6 @@
     }
 }
 
-- (void)setPreferedSize:(CGSize)preferedSize
-{
-    self.contentSize        = preferedSize;
-    preferedSize_           = preferedSize;
-}
-
 #pragma mark Properties
 
 - (void)setColor:(ccColor3B)color
@@ -677,9 +670,8 @@
 
 - (void)setCapInsets:(CGRect)capInsets
 {
-    CGSize contentSize = _contentSize;
+    capInsets_ = capInsets;
     [self updateWithBatchNode:scale9Image rect:spriteRect rotated:spriteFrameRotated_ capInsets:capInsets];
-    [self setContentSize:contentSize];
 }
 
 - (void) updateCapInset_

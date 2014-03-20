@@ -59,7 +59,7 @@
 
 - (void) setContentSize:(CGSize)contentSize
 {
-    bg.preferedSize = contentSize;
+    bg.contentSize = contentSize;
     
     NSLog(@"set lbl.dimensions: (%f,%f)", contentSize.width - (2*kCCBNoteLblInsetH), contentSize.height -kCCBNoteLblInsetTop - kCCBNoteLblInsetBot);
     

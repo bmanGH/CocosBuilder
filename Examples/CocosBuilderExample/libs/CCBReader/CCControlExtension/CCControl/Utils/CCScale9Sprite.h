@@ -16,8 +16,6 @@
 @interface CCScale9Sprite : CCNode <CCRGBAProtocol>
 {
 @public
-    CGSize              originalSize_;
-    CGSize              preferedSize_;
     CGRect              capInsets_;
     
     float               insetLeft_;
@@ -50,10 +48,6 @@
     
     BOOL                tiled_;
 }
-/** Original sprite's size. */
-@property (nonatomic, readonly) CGSize originalSize;
-/** Prefered sprite's size. By default the prefered size is the original size. */
-@property (nonatomic, assign) CGSize preferedSize;
 /** 
  * The end-cap insets. 
  * On a non-resizeable sprite, this property is set to CGRectZero; the sprite 
