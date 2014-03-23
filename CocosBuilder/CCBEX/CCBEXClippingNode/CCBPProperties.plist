@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>inheritsFrom</key>
+	<string>CCNode</string>
+	<key>canHaveChildren</key>
+	<true/>
+	<key>canBeRootNode</key>
+	<false/>
+	<key>className</key>
+	<string>CCClippingNode</string>
+	<key>editorClassName</key>
+	<string>CCBPEXClippingNode</string>
+	<key>propertiesOverridden</key>
+	<array/>
+	<key>properties</key>
+	<array>
+		<dict>
+			<key>displayName</key>
+			<string>CCClippingNode</string>
+			<key>name</key>
+			<string>CCClippingNode</string>
+			<key>type</key>
+			<string>Separator</string>
+			<key>dontSetInEditor</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>animatable</key>
+			<true/>
+			<key>default</key>
+			<array>
+				<string></string>
+				<string></string>
+			</array>
+			<key>displayName</key>
+			<string>Stencil sprite</string>
+			<key>type</key>
+			<string>SpriteFrame</string>
+			<key>name</key>
+			<string>stencilSpriteFrame</string>
+		</dict>
+		<dict>
+			<key>default</key>
+			<integer>0</integer>
+			<key>displayName</key>
+			<string>Alpha threshold</string>
+			<key>type</key>
+			<string>Float</string>
+			<key>name</key>
+			<string>alphaThreshold</string>
+		</dict>
+		<dict>
+			<key>default</key>
+			<false/>
+			<key>displayName</key>
+			<string>Inverted</string>
+			<key>type</key>
+			<string>Check</string>
+			<key>name</key>
+			<string>inverted</string>
+		</dict>
+	</array>
+</dict>
+</plist>

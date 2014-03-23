@@ -1240,7 +1240,7 @@ CA
                                 <rect key="frame" x="0.0" y="0.0" width="601" height="549"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <subviews>
-                                    <openGLView colorSize="8bit_RGB_8bit_Alpha" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" id="603" customClass="CCBGLView">
+                                    <openGLView colorSize="8bit_RGB_8bit_Alpha" depthSize="24bit" stencilSize="8bit" useAuxiliaryDepthBufferStencil="NO" useDoubleBufferingEnabled="YES" allowOffline="YES" id="603" customClass="CCBGLView">
                                         <rect key="frame" x="0.0" y="0.0" width="601" height="549"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <connections>
