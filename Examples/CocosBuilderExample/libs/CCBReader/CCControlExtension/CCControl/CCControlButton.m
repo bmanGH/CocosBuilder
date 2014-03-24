@@ -3,17 +3,17 @@
  *
  * Copyright 2011 Yannick Loriot.
  * http://yannickloriot.com
- * 
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
- * 
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -45,6 +45,8 @@ enum
 /** Table of correspondence between the state and the background sprite. */
 @property (nonatomic, retain) NSMutableDictionary *backgroundSpriteDispatchTable;
 
+@property (nonatomic, retain) NSMutableDictionary *titleImageDispatchTable;
+
 @end
 
 @implementation CCControlButton
@@ -55,6 +57,7 @@ enum
 @synthesize titleColorDispatchTable         = titleColorDispatchTable_;
 @synthesize titleLabelDispatchTable         = titleLabelDispatchTable_;
 @synthesize backgroundSpriteDispatchTable   = backgroundSpriteDispatchTable_;
+@synthesize titleImageDispatchTable         = titleImageDispatchTable_;
 @synthesize adjustBackgroundImage           = adjustBackgroundImage_;
 @synthesize currentTitle                    = currentTitle_;
 @synthesize currentTitleColor               = currentTitleColor_;
@@ -64,6 +67,7 @@ enum
 - (void)dealloc
 {
     [backgroundSpriteDispatchTable_ release];
+    [titleImageDispatchTable_       release];
     [titleLabelDispatchTable_       release];
     [titleColorDispatchTable_       release];
     [titleDispatchTable_            release];
@@ -79,7 +83,7 @@ enum
 
 - (id)init
 {
-    return [self initWithLabel:[CCLabelTTF labelWithString:@"" fontName:@"Helvetica" fontSize:12] 
+    return [self initWithLabel:[CCLabelTTF labelWithString:@"" fontName:@"Helvetica" fontSize:12]
               backgroundSprite:[[[CCScale9Sprite alloc] init] autorelease]];
 }
 
@@ -102,7 +106,7 @@ enum
         self.ignoreAnchorPointForPosition          = NO;
         self.anchorPoint                    = ccp (0.5f, 0.5f);
         
-        // Set the nodes    
+        // Set the nodes
         self.titleLabel                     = label;
         self.backgroundSprite               = backgroundsprite;
         
@@ -110,6 +114,7 @@ enum
         self.titleDispatchTable             = [NSMutableDictionary dictionary];
         self.titleColorDispatchTable        = [NSMutableDictionary dictionary];
         self.titleLabelDispatchTable        = [NSMutableDictionary dictionary];
+        self.titleImageDispatchTable        = [NSMutableDictionary dictionary];
         self.backgroundSpriteDispatchTable  = [NSMutableDictionary dictionary];
         
         // Set the default color and opacity
@@ -200,7 +205,7 @@ enum
     else
     {
         adjustBackgroundImage_ = NO;
-    
+        
         for (id key in backgroundSpriteDispatchTable_)
         {
             CCScale9Sprite* sprite = [backgroundSpriteDispatchTable_ objectForKey:key];
@@ -480,7 +485,7 @@ enum
     // Update the background sprite
     self.backgroundSprite       = [self backgroundSpriteForState:state_];
     backgroundSprite_.position  = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
-
+    
     // Get the title label size
     CGSize titleLabelSize       = [titleLabel_ boundingBox].size;
     
@@ -493,7 +498,7 @@ enum
     } else
     {
         CGSize contentSize     = [backgroundSprite_ contentSize];
-
+        
         if (contentSize.width <= 0)
         {
             contentSize.width = titleLabelSize.width;
