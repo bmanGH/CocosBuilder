@@ -621,6 +621,10 @@
         [scale9Image addChild:topLeft z:2];
         [scale9Image addChild:bottomRight z:2];
         [scale9Image addChild:bottomLeft z:2];
+        
+        [self setColor:color_];
+        [self setOpacity:opacity_];
+        [self setOpacityModifyRGB:opacityModifyRGB_];
     }
 }
 
@@ -729,6 +733,11 @@
 {
     tiled_ = tiled;
     positionsAreDirty_ = YES;
+}
+
+- (BOOL) isTiled
+{
+    return tiled_;
 }
 
 #pragma mark -

@@ -125,6 +125,7 @@
 		06EDA3F618DF270800AB02EB /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06EDA3F218DF270800AB02EB /* Icon.png */; };
 		06EDA3F918DF273A00AB02EB /* CCBEXClippingNode.ccbPlugNode in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 06EDA3EA18DF24E900AB02EB /* CCBEXClippingNode.ccbPlugNode */; };
 		06EDA3FC18DF293100AB02EB /* CCBPEXClippingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 06EDA3FB18DF293100AB02EB /* CCBPEXClippingNode.m */; };
+		06F2F33418E1751900EA9548 /* CCBPEXControlButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F2F33318E1751900EA9548 /* CCBPEXControlButton.m */; };
 		581130601639C52500A86D70 /* seq-startmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = 5811305F1639C52000A86D70 /* seq-startmarker.png */; };
 		581BCFE8162DADE7007DE600 /* CCBSplitHorizontalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 581BCFE7162DADE7007DE600 /* CCBSplitHorizontalView.m */; };
 		58FA2034162D73F3006B8856 /* TB_bottomPanel.png in Resources */ = {isa = PBXBuildFile; fileRef = 58FA2031162D73F3006B8856 /* TB_bottomPanel.png */; };
@@ -1164,6 +1165,8 @@
 		06EDA3F218DF270800AB02EB /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		06EDA3FA18DF293100AB02EB /* CCBPEXClippingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPEXClippingNode.h; sourceTree = "<group>"; };
 		06EDA3FB18DF293100AB02EB /* CCBPEXClippingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXClippingNode.m; sourceTree = "<group>"; };
+		06F2F33218E1751900EA9548 /* CCBPEXControlButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPEXControlButton.h; sourceTree = "<group>"; };
+		06F2F33318E1751900EA9548 /* CCBPEXControlButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXControlButton.m; sourceTree = "<group>"; };
 		5811305E1639BF1200A86D70 /* SequencerTimelineDrawDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SequencerTimelineDrawDelegate.h; sourceTree = "<group>"; };
 		5811305F1639C52000A86D70 /* seq-startmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "seq-startmarker.png"; sourceTree = "<group>"; };
 		581BCFE6162DADE7007DE600 /* CCBSplitHorizontalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBSplitHorizontalView.h; sourceTree = "<group>"; };
@@ -4060,6 +4063,8 @@
 			isa = PBXGroup;
 			children = (
 				E3B84C3C151A2C02004B743C /* Supporting Files */,
+				06F2F33218E1751900EA9548 /* CCBPEXControlButton.h */,
+				06F2F33318E1751900EA9548 /* CCBPEXControlButton.m */,
 			);
 			path = CCControlButton;
 			sourceTree = "<group>";
@@ -5677,6 +5682,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F2F33418E1751900EA9548 /* CCBPEXControlButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

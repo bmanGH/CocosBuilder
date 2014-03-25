@@ -25,55 +25,46 @@
  */
 
 #import "CCControlButton.h"
-
 #import "CCScale9Sprite.h"
 
 enum
 {
+    kControlButtonTitleLabelZOrder = 2,
+    kControlButtonTitleImageZOrder = 1,
+    kControlButtonBackgroundZOrder = 0,
 	kZoomActionTag = 0xCCCB0001,
 };
 
 @interface CCControlButton ()
-/** Flag to know if the button is currently pushed.  */
-@property (nonatomic, getter = isPushed) BOOL pushed;
+
 /** Table of correspondence between the state and its title. */
 @property (nonatomic, retain) NSMutableDictionary *titleDispatchTable;
 /** Table of correspondence between the state and its title color. */
 @property (nonatomic, retain) NSMutableDictionary *titleColorDispatchTable;
-/** Table of correspondence between the state and its title label. */
-@property (nonatomic, retain) NSMutableDictionary *titleLabelDispatchTable;
-/** Table of correspondence between the state and the background sprite. */
-@property (nonatomic, retain) NSMutableDictionary *backgroundSpriteDispatchTable;
-
+/** Table of correspondence between the state and its title image. */
 @property (nonatomic, retain) NSMutableDictionary *titleImageDispatchTable;
 
 @end
 
 @implementation CCControlButton
-@synthesize pushed                          = pushed_;
+
 @synthesize titleLabel                      = titleLabel_;
+@synthesize titleImage                      = titleImage_;
 @synthesize backgroundSprite                = backgroundSprite_;
 @synthesize titleDispatchTable              = titleDispatchTable_;
 @synthesize titleColorDispatchTable         = titleColorDispatchTable_;
-@synthesize titleLabelDispatchTable         = titleLabelDispatchTable_;
-@synthesize backgroundSpriteDispatchTable   = backgroundSpriteDispatchTable_;
 @synthesize titleImageDispatchTable         = titleImageDispatchTable_;
-@synthesize adjustBackgroundImage           = adjustBackgroundImage_;
-@synthesize currentTitle                    = currentTitle_;
-@synthesize currentTitleColor               = currentTitleColor_;
-@synthesize zoomOnTouchDown                 = zoomOnTouchDown_;
-@synthesize preferedSize                    = preferedSize_;
+@synthesize touchdownZoomScaleRatio         = touchdownZoomScaleRatio_;
+@synthesize touchAreaScaleRatio             = touchAreaScaleRatio_;
 
 - (void)dealloc
 {
-    [backgroundSpriteDispatchTable_ release];
     [titleImageDispatchTable_       release];
-    [titleLabelDispatchTable_       release];
     [titleColorDispatchTable_       release];
     [titleDispatchTable_            release];
-    [backgroundSprite_              release];
     [titleLabel_                    release];
-    [currentTitle_                  release];
+    [titleImage_                    release];
+    [backgroundSprite_              release];
     
     [super                          dealloc];
 }
@@ -95,13 +86,6 @@ enum
         NSAssert(backgroundsprite, @"Background sprite must not be nil.");
         NSAssert([backgroundsprite isKindOfClass:[CCScale9Sprite class]], @"The background sprite must be kind of 'CCScale9Sprite' class.");
         
-        self.pushed                         = NO;
-        self.zoomOnTouchDown                = YES;
-        
-        // Adjust the background image by default
-        self.adjustBackgroundImage          = YES;
-        self.preferedSize                   = CGSizeZero;
-        
         // Set the default anchor point
         self.ignoreAnchorPointForPosition          = NO;
         self.anchorPoint                    = ccp (0.5f, 0.5f);
@@ -109,26 +93,26 @@ enum
         // Set the nodes
         self.titleLabel                     = label;
         self.backgroundSprite               = backgroundsprite;
+        CCSprite* sprite = [[CCSprite alloc] init];
+        self.titleImage                     = sprite;
+        [sprite release];
+        self.titleImage.visible             = NO;
         
         // Initialize the button state tables
         self.titleDispatchTable             = [NSMutableDictionary dictionary];
         self.titleColorDispatchTable        = [NSMutableDictionary dictionary];
-        self.titleLabelDispatchTable        = [NSMutableDictionary dictionary];
         self.titleImageDispatchTable        = [NSMutableDictionary dictionary];
-        self.backgroundSpriteDispatchTable  = [NSMutableDictionary dictionary];
         
         // Set the default color and opacity
         self.color                          = ccc3(255.0f, 255.0f, 255.0f);
         self.opacity                        = 255.0f;
         self.opacityModifyRGB               = YES;
         
-        // Initialize the dispatch table
-        [self setTitle:[label string]               forState:CCControlStateNormal];
-        [self setTitleColor:[label color]           forState:CCControlStateNormal];
-        [self setTitleLabel:label                   forState:CCControlStateNormal];
-        [self setBackgroundSprite:backgroundsprite  forState:CCControlStateNormal];
-        
         self.labelAnchorPoint = ccp (0.5f, 0.5f);
+        self.imageAnchorPoint = ccp (0.5f, 0.5f);
+        
+        self.touchdownZoomScaleRatio = 1.1f;
+        self.touchAreaScaleRatio = 1.0f;
         
         // Layout update
         [self needsLayout];
@@ -180,49 +164,20 @@ enum
     
     [self needsLayout];
     
-    if (zoomOnTouchDown_)
+    if (touchdownZoomScaleRatio_ != 1.0f)
     {
-        float scaleValue        = (highlighted && [self isEnabled] && ![self isSelected]) ? 1.1f : 1.0f;
+        float scaleValue        = [self isHighlighted] ? self.touchdownZoomScaleRatio : 1.0f;
         CCAction *zoomAction    = [CCScaleTo actionWithDuration:0.05f scale:scaleValue];
         zoomAction.tag          = kZoomActionTag;
         [self runAction:zoomAction];
     }
 }
 
-- (void)setAdjustBackgroundImage:(BOOL)adjustBackgroundImage
-{
-    adjustBackgroundImage_ = adjustBackgroundImage;
-    
-    [self needsLayout];
-}
-
-- (void)setPreferedSize:(CGSize)preferedSize
-{
-    if (preferedSize.width == 0 && preferedSize.height == 0)
-    {
-        adjustBackgroundImage_  = YES;
-    }
-    else
-    {
-        adjustBackgroundImage_ = NO;
-        
-        for (id key in backgroundSpriteDispatchTable_)
-        {
-            CCScale9Sprite* sprite = [backgroundSpriteDispatchTable_ objectForKey:key];
-            sprite.contentSize = preferedSize;
-        }
-    }
-    
-    preferedSize_   = preferedSize;
-    
-    [self needsLayout];
-}
-
 - (void) setLabelAnchorPoint:(CGPoint)labelAnchorPoint
 {
     labelAnchorPoint_ = labelAnchorPoint;
     
-    titleLabel_.anchorPoint = labelAnchorPoint;
+    [self needsLayout];
 }
 
 - (CGPoint) labelAnchorPoint
@@ -230,13 +185,57 @@ enum
     return labelAnchorPoint_;
 }
 
+- (void) setImageAnchorPoint:(CGPoint)imageAnchorPoint
+{
+    imageAnchorPoint_ = imageAnchorPoint;
+    
+    [self needsLayout];
+}
+
+- (CGPoint) imageAnchorPoint
+{
+    return imageAnchorPoint_;
+}
+
 #pragma mark -
 #pragma mark CCButton Public Methods
+
+- (void) setTitleLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol> *)titleLabel
+{
+    [titleLabel retain];
+    [titleLabel_ release];
+    titleLabel_ = titleLabel;
+    if (titleLabel) {
+        [self addChild:titleLabel z:kControlButtonTitleLabelZOrder];
+        [self needsLayout];
+    }
+}
+
+- (void) setTitleImage:(CCSprite *)titleImage
+{
+    [titleImage retain];
+    [titleImage_ release];
+    titleImage_ = titleImage;
+    if (titleImage) {
+        [self addChild:titleImage z:kControlButtonTitleImageZOrder];
+        [self needsLayout];
+    }
+}
+
+- (void) setBackgroundSprite:(CCScale9Sprite *)backgroundSprite
+{
+    [backgroundSprite retain];
+    [backgroundSprite_ release];
+    backgroundSprite_ = backgroundSprite;
+    if (backgroundSprite) {
+        [self addChild:backgroundSprite z:kControlButtonBackgroundZOrder];
+        [self needsLayout];
+    }
+}
 
 - (NSString *)titleForState:(CCControlState)state
 {
     NSNumber *stateNumber = [NSNumber numberWithLong:state];
-    
     NSString *title = [titleDispatchTable_ objectForKey:stateNumber];
     
     if (title)
@@ -244,7 +243,7 @@ enum
         return title;
     }
     
-    return [titleDispatchTable_ objectForKey:[NSNumber numberWithInt:CCControlStateNormal]];
+    return @"";
 }
 
 - (void)setTitle:(NSString *)title forState:(CCControlState)state
@@ -267,20 +266,16 @@ enum
 
 - (ccColor3B)titleColorForState:(CCControlState)state
 {
-    NSNumber *stateNumber   = [NSNumber numberWithLong:state];
+    ccColor3B returnColor = ccWHITE;
     
-    ccColor3B returnColor;
+    NSNumber *stateNumber   = [NSNumber numberWithLong:state];
     NSValue *colorValue     = [titleColorDispatchTable_ objectForKey:stateNumber];
     
     if (colorValue)
     {
         [colorValue getValue:&returnColor];
-        
         return returnColor;
     }
-    
-    colorValue = [titleColorDispatchTable_ objectForKey:[NSNumber numberWithInt:CCControlStateNormal]];
-    [colorValue getValue:&returnColor];
     
     return returnColor;
 }
@@ -301,226 +296,66 @@ enum
     }
 }
 
-- (CCNode<CCLabelProtocol,CCRGBAProtocol> *)titleLabelForState:(CCControlState)state
+- (CCSpriteFrame*) titleImageForState:(CCControlState)state
 {
     NSNumber *stateNumber = [NSNumber numberWithLong:state];
+    CCSpriteFrame *image = [titleImageDispatchTable_ objectForKey:stateNumber];
     
-    CCNode<CCLabelProtocol,CCRGBAProtocol> *titleLabel = [titleLabelDispatchTable_ objectForKey:stateNumber];
-    
-    if (titleLabel)
+    if (image)
     {
-        return titleLabel;
+        return image;
     }
     
-    return [titleLabelDispatchTable_ objectForKey:[NSNumber numberWithInt:CCControlStateNormal]];
+    return nil;
 }
 
-- (void)setTitleLabel:(CCNode<CCLabelProtocol,CCRGBAProtocol> *)label forState:(CCControlState)state
+- (void)setTitleImage:(CCScale9Sprite *)image forState:(CCControlState)state
 {
-    NSNumber *stateNumber = [NSNumber numberWithLong:state];
+    NSNumber *stateNumber   = [NSNumber numberWithLong:state];
     
-    CCNode<CCLabelProtocol,CCRGBAProtocol> *previousLabel = [titleLabelDispatchTable_ objectForKey:stateNumber];
-    if (previousLabel)
-    {
-        [self removeChild:previousLabel cleanup:YES];
-        [titleLabelDispatchTable_ removeObjectForKey:stateNumber];
-    }
-    
-    [titleLabelDispatchTable_ setObject:label forKey:stateNumber];
-    [label setVisible:NO];
-    [label setAnchorPoint:ccp (0.5f, 0.5f)];
-    [self addChild:label z:1];
+    [titleImageDispatchTable_ removeObjectForKey:stateNumber];
+    [titleImageDispatchTable_ setObject:image forKey:stateNumber];
     
     // If the current state if equal to the given state we update the layout
     if (state_ == state)
     {
         [self needsLayout];
     }
-}
-
-- (void)setTitleBMFont:(NSString*)fntFile forState:(CCControlState)state
-{
-    NSString* title = [self titleForState:state];
-    if (!title) title = @"";
-    
-    [self setTitleLabel:[CCLabelBMFont labelWithString:title fntFile:fntFile] forState:state];
-}
-
-- (NSString*)titleBMFontForState:(CCControlState)state
-{
-    CCNode<CCLabelProtocol>* label = [self titleLabelForState:state];
-    if ([label isKindOfClass:[CCLabelBMFont class]])
-    {
-        CCLabelBMFont* bmLabel = (CCLabelBMFont *)label;
-        return [bmLabel fntFile];
-    } else
-    {
-        return @"";
-    }
-}
-
-- (void)setTitleTTF:(NSString *)fontName forState:(CCControlState)state
-{
-    NSString* title = [self titleForState:state];
-    if (!title) title = @"";
-    
-    [self setTitleLabel:[CCLabelTTF labelWithString:title fontName:fontName fontSize:12] forState:state];
-}
-
-- (NSString*) titleTTFForState:(CCControlState)state
-{
-    CCNode<CCLabelProtocol>* label = [self titleLabelForState:state];
-    if (!label) return NULL;
-    if ([label isKindOfClass:[CCLabelTTF class]])
-    {
-        CCLabelTTF* labelTTF = (CCLabelTTF*)label;
-        return [labelTTF fontName];
-    }
-    return NULL;
-}
-
-- (void) setTitleTTFSize:(float)size forState:(CCControlState)state
-{
-    CCNode<CCLabelProtocol>* label = [self titleLabelForState:state];
-    if (label && [label isKindOfClass:[CCLabelTTF class]])
-    {
-        CCLabelTTF* labelTTF = (CCLabelTTF*)label;
-        [labelTTF setFontSize:size];
-    }
-}
-
-- (float) titleTTFSizeForState:(CCControlState)state
-{
-    CCNode<CCLabelProtocol>* label = [self titleLabelForState:state];
-    if (label && [label isKindOfClass:[CCLabelTTF class]])
-    {
-        CCLabelTTF* labelTTF = (CCLabelTTF*)label;
-        return [labelTTF fontSize];
-    }
-    return 0;
-}
-
-- (CCScale9Sprite *)backgroundSpriteForState:(CCControlState)state
-{
-    NSNumber *stateNumber = [NSNumber numberWithLong:state];
-    
-    CCScale9Sprite *backgroundSprite = [backgroundSpriteDispatchTable_ objectForKey:stateNumber];
-    
-    if (backgroundSprite)
-    {
-        return backgroundSprite;
-    }
-    
-    return [backgroundSpriteDispatchTable_ objectForKey:[NSNumber numberWithInt:CCControlStateNormal]];
-}
-
-- (void)setBackgroundSprite:(CCScale9Sprite *)sprite forState:(CCControlState)state
-{
-    CGSize oldPreferedSize = preferedSize_;
-    
-    NSNumber *stateNumber                       = [NSNumber numberWithLong:state];
-    
-    CCScale9Sprite *previousBackgroundSprite    = [backgroundSpriteDispatchTable_ objectForKey:stateNumber];
-    if (previousBackgroundSprite)
-    {
-        [self removeChild:previousBackgroundSprite cleanup:YES];
-        [backgroundSpriteDispatchTable_ removeObjectForKey:stateNumber];
-    }
-    
-    [backgroundSpriteDispatchTable_ setObject:sprite forKey:stateNumber];
-    [sprite setVisible:NO];
-    [self addChild:sprite];
-    
-    if (preferedSize_.width != 0 || preferedSize_.height != 0)
-    {
-        if (CGSizeEqualToSize(oldPreferedSize, preferedSize_))
-        {
-            // Force update of preferred size
-            sprite.contentSize = CGSizeMake(oldPreferedSize.width+1, oldPreferedSize.height+1);
-        }
-        
-        sprite.contentSize = preferedSize_;
-    }
-    
-    // If the current state if equal to the given state we update the layout
-    if (state_ == state)
-    {
-        [self needsLayout];
-    }
-}
-
-- (void)setBackgroundSpriteFrame:(CCSpriteFrame*)spriteFrame forState:(CCControlState)state
-{
-    CCScale9Sprite* sprite = [CCScale9Sprite spriteWithSpriteFrame:spriteFrame];
-    [self setBackgroundSprite:sprite forState:state];
 }
 
 #pragma mark CCButton Private Methods
 
 - (void)needsLayout
 {
-    // Hide the background and the label
-    titleLabel_.visible         = NO;
-    backgroundSprite_.visible   = NO;
-    
-    // Update anchor points of all labels
-    self.labelAnchorPoint = labelAnchorPoint_;
-    
-    // Update the label to match with the current state
-    if (currentTitle_)
+    if (self.titleLabel)
     {
-        [currentTitle_ release], currentTitle_ = nil;
-    }
-    currentTitle_               = [[self titleForState:state_] retain];
-    currentTitleColor_          = [self titleColorForState:state_];
-    
-    self.titleLabel             = [self titleLabelForState:state_];
-    if (currentTitle_)
-    {
-        titleLabel_.string          = currentTitle_;
-    }
-    titleLabel_.color           = currentTitleColor_;
-    titleLabel_.position        = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
-    
-    // Update the background sprite
-    self.backgroundSprite       = [self backgroundSpriteForState:state_];
-    backgroundSprite_.position  = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
-    
-    // Get the title label size
-    CGSize titleLabelSize       = [titleLabel_ boundingBox].size;
-    
-    // Adjust the background image if necessary
-    if ([self doesAdjustBackgroundImage])
-    {
-        // Add the margins
-        [backgroundSprite_ setContentSize:
-         CGSizeMake(titleLabelSize.width + CCControlButtonMarginLR * 2, titleLabelSize.height + CCControlButtonMarginTB * 2)];
-    } else
-    {
-        CGSize contentSize     = [backgroundSprite_ contentSize];
-        
-        if (contentSize.width <= 0)
-        {
-            contentSize.width = titleLabelSize.width;
-        }
-        if (contentSize.height <= 0)
-        {
-            contentSize.height = titleLabelSize.height;
-        }
-        
-        [backgroundSprite_ setContentSize:contentSize];
+        self.titleLabel.string = [self titleForState:self.state];
+        self.titleLabel.color = [self titleColorForState:self.state];
+        self.titleLabel.position = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
+        self.titleLabel.anchorPoint = self.labelAnchorPoint;
     }
     
-    // Set the content size
-    CGRect maxRect              = CGRectUnion([titleLabel_ boundingBox], [backgroundSprite_ boundingBox]);
-    self.contentSize            = CGSizeMake(maxRect.size.width, maxRect.size.height);
+    CCSpriteFrame* imageFrame = [self titleImageForState:self.state];
+    if (imageFrame)
+    {
+        [self.titleImage setDisplayFrame:imageFrame];
+        self.titleImage.color = [self titleColorForState:self.state];
+        self.titleImage.position = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
+        self.titleImage.anchorPoint = self.imageAnchorPoint;
+        self.titleImage.visible = YES;
+    }
+    else
+    {
+        self.titleImage.visible = NO;
+    }
     
-    titleLabel_.position        = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
-    backgroundSprite_.position  = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
-    
-    // Make visible the background and the label
-    titleLabel_.visible         = YES;
-    backgroundSprite_.visible   = YES;
+    if (self.backgroundSprite)
+    {
+        self.backgroundSprite.color = [self titleColorForState:self.state];
+        [self.backgroundSprite setContentSize:self.contentSize];
+        self.backgroundSprite.position = ccp (self.contentSize.width / 2, self.contentSize.height / 2);
+        self.backgroundSprite.anchorPoint = ccp(0.5f, 0.5f);
+    }
 }
 
 #pragma mark -
@@ -550,7 +385,6 @@ enum
 - (void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (![self isEnabled]
-        || ![self isPushed]
         || [self isSelected])
     {
         if ([self isHighlighted])
@@ -587,7 +421,6 @@ enum
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     state_              = CCControlStateNormal;
-    pushed_             = NO;
     self.highlighted    = NO;
     
     if ([self isTouchInside:touch])
@@ -602,7 +435,6 @@ enum
 - (void)ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
 {
     state_              = CCControlStateNormal;
-    pushed_             = NO;
     self.highlighted    = NO;
     
     [self sendActionsForControlEvents:CCControlEventTouchCancel];
@@ -618,7 +450,6 @@ enum
     }
     
     state_              = CCControlStateHighlighted;
-    pushed_             = YES;
     self.highlighted    = YES;
     
     [self sendActionsForControlEvents:CCControlEventTouchDown];
@@ -630,7 +461,6 @@ enum
 - (BOOL)ccMouseDragged:(NSEvent *)event
 {
 	if (![self isEnabled]
-        || ![self isPushed]
         || [self isSelected])
     {
         if ([self isHighlighted])
@@ -669,7 +499,6 @@ enum
 - (BOOL)ccMouseUp:(NSEvent *)event
 {
     state_              = CCControlStateNormal;
-    pushed_             = NO;
     self.highlighted    = NO;
     
     if ([self isMouseInside:event])
@@ -697,9 +526,9 @@ enum
         {
             [self setTitle:value forState:state];
         }
-        else if ([keyChunk isEqualToString:@"backgroundSpriteFrame"])
+        else if ([keyChunk isEqualToString:@"imageSpriteFrame"])
         {
-            [self setBackgroundSpriteFrame:value forState:state];
+            [self setTitleImage:value forState:state];
         }
         else if ([keyChunk isEqualToString:@"titleColor"])
         {
@@ -707,24 +536,12 @@ enum
             [value getValue:&c];
             [self setTitleColor:c forState:state];
         }
-        else if ([keyChunk isEqualToString:@"titleBMFont"])
-        {
-            [self setTitleBMFont:value forState:state];
-        }
-        else if ([keyChunk isEqualToString:@"titleTTF"])
-        {
-            NSLog(@"setTitleTTF: %@ forState:%d", value, state);
-            
-            [self setTitleTTF:value forState:state];
-        }
-        else if ([keyChunk isEqualToString:@"titleTTFSize"])
-        {
-            [self setTitleTTFSize:[value floatValue] forState:state];
-        }
         else
         {
             [super setValue:value forUndefinedKey:key];
         }
+        
+        [self needsLayout];
     }
     else
     {
@@ -749,18 +566,6 @@ enum
             ccColor3B c = [self titleColorForState:state];
             return [NSValue value:&c withObjCType:@encode(ccColor3B)];
         }
-        else if ([keyChunk isEqualToString:@"titleBMFont"])
-        {
-            return [self titleBMFontForState:state];
-        }
-        else if ([keyChunk isEqualToString:@"titleTTF"])
-        {
-            return [self titleTTFForState:state];
-        }
-        else if ([keyChunk isEqualToString:@"titleTTFSize"])
-        {
-            return [NSNumber numberWithFloat:[self titleTTFSizeForState:state]];
-        }
         else
         {
             return [super valueForUndefinedKey:key];
@@ -770,6 +575,15 @@ enum
     {
         return [super valueForUndefinedKey:key];
     }
+}
+
+#pragma mark - override
+
+- (void) setContentSize:(CGSize)contentSize
+{
+    [super setContentSize:contentSize];
+    
+    [self needsLayout];
 }
 
 @end
