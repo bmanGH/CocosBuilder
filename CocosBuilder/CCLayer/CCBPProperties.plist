@@ -28,8 +28,6 @@
 	<key>propertiesOverridden</key>
 	<array>
 		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
 			<key>readOnly</key>
 			<true/>
 			<key>type</key>
@@ -40,8 +38,6 @@
 			<string>Anchor point</string>
 		</dict>
 		<dict>
-			<key>dontSetInEditor</key>
-			<true/>
 			<key>readOnly</key>
 			<true/>
 			<key>type</key>

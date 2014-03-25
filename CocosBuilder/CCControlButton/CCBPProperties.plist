@@ -115,9 +115,9 @@
 		</dict>
 		<dict>
 			<key>defaultSerialization</key>
-			<integer>1</integer>
+			<real>1.1</real>
 			<key>default</key>
-			<integer>1</integer>
+			<real>1.1</real>
 			<key>displayName</key>
 			<string>Touch down zoom scale ratio</string>
 			<key>type</key>
@@ -154,8 +154,8 @@
 		<dict>
 			<key>default</key>
 			<array>
-				<string>ccbResources/ccbDefaultImages.plist</string>
-				<string>ccbButton.png</string>
+				<string></string>
+				<string></string>
 			</array>
 			<key>displayName</key>
 			<string>Sprite frame</string>
@@ -189,8 +189,8 @@
 		<dict>
 			<key>default</key>
 			<array>
-				<string>ccbResources/ccbDefaultImages.plist</string>
-				<string>ccbButtonHilite.png</string>
+				<string></string>
+				<string></string>
 			</array>
 			<key>displayName</key>
 			<string>Sprite frame</string>
@@ -224,8 +224,8 @@
 		<dict>
 			<key>default</key>
 			<array>
-				<string>ccbResources/ccbDefaultImages.plist</string>
-				<string>ccbButtonDisabled.png</string>
+				<string></string>
+				<string></string>
 			</array>
 			<key>displayName</key>
 			<string>Sprite frame</string>
@@ -255,7 +255,7 @@
 				<string></string>
 			</array>
 			<key>displayName</key>
-			<string>Background sprite</string>
+			<string>Background Sprite</string>
 			<key>type</key>
 			<string>SpriteFrame</string>
 			<key>name</key>
