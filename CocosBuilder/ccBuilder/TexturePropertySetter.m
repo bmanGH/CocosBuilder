@@ -80,11 +80,11 @@
     
     if (!spriteFrame)
     {
-        // Texture is missing
+        // Texture is missing, use default missing texture
         CCTexture2D* texture = [[CCTextureCache sharedTextureCache] addImage:@"missing-texture.png"];
         CGRect bounds = CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height);
         
-        spriteFrame = [CCSpriteFrame frameWithTexture:texture rect:bounds] ;
+        spriteFrame = [CCSpriteFrame frameWithTextureFilename:@"missing-texture.png" rect:bounds];
     }
 
     // Actually set the sprite frame

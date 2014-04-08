@@ -36,12 +36,22 @@
     CCLabelTTF* labelTTF = (CCLabelTTF*)self.titleLabel;
     labelTTF.fontSize = size;
     
+    if (size <= FLT_EPSILON)
+        labelTTF.visible = NO;
+    else
+        labelTTF.visible = YES;
+    
     [self needsLayout];
 }
 
 - (void) setBackgroundSpriteFrame:(CCSpriteFrame*)value
 {
     [self.backgroundSprite setSpriteFrame:value];
+    
+    if ( [value.textureFilename isEqualToString:@"missing-texture.png"] )
+        self.backgroundSprite.visible = NO;
+    else
+        self.backgroundSprite.visible = YES;
     
     [self needsLayout];
 }
