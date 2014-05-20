@@ -28,6 +28,13 @@
 		0645217F18D31D850094CF05 /* CCBEXTextField.ccbPlugNode in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 0645216118D318B50094CF05 /* CCBEXTextField.ccbPlugNode */; };
 		0645218218D31F010094CF05 /* CCBPEXEditBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645218118D31F010094CF05 /* CCBPEXEditBox.m */; };
 		0645218618D329960094CF05 /* CCBPEXTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 0645218518D329960094CF05 /* CCBPEXTextField.m */; };
+		06CB5A8D192B5943005BE4F5 /* CCBEXProgressTimer-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CB5A85192B5943005BE4F5 /* CCBEXProgressTimer-Info.plist */; };
+		06CB5A8E192B5943005BE4F5 /* CCBPEXProgressTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CB5A88192B5943005BE4F5 /* CCBPEXProgressTimer.m */; };
+		06CB5A8F192B5943005BE4F5 /* CCBPProperties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 06CB5A89192B5943005BE4F5 /* CCBPProperties.plist */; };
+		06CB5A90192B5943005BE4F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 06CB5A8A192B5943005BE4F5 /* InfoPlist.strings */; };
+		06CB5A91192B5943005BE4F5 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 06CB5A8C192B5943005BE4F5 /* Icon.png */; };
+		06CB5A93192B6348005BE4F5 /* CCBEXProgressTimer.ccbPlugNode in Copy PlugIns */ = {isa = PBXBuildFile; fileRef = 06D37E07192B370100BD1579 /* CCBEXProgressTimer.ccbPlugNode */; };
+		06D37DFE192B370100BD1579 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7789ABC2133AA82000CEFCC7 /* Cocoa.framework */; };
 		06DD546318CDD509008A1AA3 /* CCAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD539418CDD508008A1AA3 /* CCAction.m */; };
 		06DD546418CDD509008A1AA3 /* CCActionCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD539618CDD508008A1AA3 /* CCActionCamera.m */; };
 		06DD546518CDD509008A1AA3 /* CCActionCatmullRom.m in Sources */ = {isa = PBXBuildFile; fileRef = 06DD539818CDD508008A1AA3 /* CCActionCatmullRom.m */; };
@@ -723,6 +730,13 @@
 			remoteGlobalIDString = 0645215618D318B50094CF05;
 			remoteInfo = CCBEXTextField;
 		};
+		06D37E19192B3DC800BD1579 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7789ABB5133AA82000CEFCC7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 06D37DFA192B370100BD1579;
+			remoteInfo = CCBEXProgressTimer;
+		};
 		06EDA3F718DF272400AB02EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7789ABB5133AA82000CEFCC7 /* Project object */;
@@ -891,6 +905,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				06CB5A93192B6348005BE4F5 /* CCBEXProgressTimer.ccbPlugNode in Copy PlugIns */,
 				06EDA3F918DF273A00AB02EB /* CCBEXClippingNode.ccbPlugNode in Copy PlugIns */,
 				06211BE418D8312D00898506 /* CCBEXUILayer.ccbPlugNode in Copy PlugIns */,
 				0645217F18D31D850094CF05 /* CCBEXTextField.ccbPlugNode in Copy PlugIns */,
@@ -952,6 +967,14 @@
 		0645218118D31F010094CF05 /* CCBPEXEditBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXEditBox.m; sourceTree = "<group>"; };
 		0645218418D329960094CF05 /* CCBPEXTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPEXTextField.h; sourceTree = "<group>"; };
 		0645218518D329960094CF05 /* CCBPEXTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXTextField.m; sourceTree = "<group>"; };
+		06CB5A85192B5943005BE4F5 /* CCBEXProgressTimer-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "CCBEXProgressTimer-Info.plist"; sourceTree = "<group>"; };
+		06CB5A86192B5943005BE4F5 /* CCBEXProgressTimer-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CCBEXProgressTimer-Prefix.pch"; sourceTree = "<group>"; };
+		06CB5A87192B5943005BE4F5 /* CCBPEXProgressTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCBPEXProgressTimer.h; sourceTree = "<group>"; };
+		06CB5A88192B5943005BE4F5 /* CCBPEXProgressTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCBPEXProgressTimer.m; sourceTree = "<group>"; };
+		06CB5A89192B5943005BE4F5 /* CCBPProperties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CCBPProperties.plist; sourceTree = "<group>"; };
+		06CB5A8B192B5943005BE4F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		06CB5A8C192B5943005BE4F5 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		06D37E07192B370100BD1579 /* CCBEXProgressTimer.ccbPlugNode */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCBEXProgressTimer.ccbPlugNode; sourceTree = BUILT_PRODUCTS_DIR; };
 		06DD539318CDD508008A1AA3 /* CCAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCAction.h; sourceTree = "<group>"; };
 		06DD539418CDD508008A1AA3 /* CCAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCAction.m; sourceTree = "<group>"; };
 		06DD539518CDD508008A1AA3 /* CCActionCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCActionCamera.h; sourceTree = "<group>"; };
@@ -2043,6 +2066,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		06D37DFD192B370100BD1579 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06D37DFE192B370100BD1579 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		06EDA3E018DF24E900AB02EB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2237,6 +2268,7 @@
 				0645216F18D31D590094CF05 /* CCBEXTextField */,
 				06211BD418D830D400898506 /* CCBEXUILayer */,
 				06EDA3EC18DF270800AB02EB /* CCBEXClippingNode */,
+				06CB5A84192B5943005BE4F5 /* CCBEXProgressTimer */,
 			);
 			path = CCBEX;
 			sourceTree = "<group>";
@@ -2267,6 +2299,20 @@
 				0645217518D31D590094CF05 /* Icon.png */,
 			);
 			path = CCBEXTextField;
+			sourceTree = "<group>";
+		};
+		06CB5A84192B5943005BE4F5 /* CCBEXProgressTimer */ = {
+			isa = PBXGroup;
+			children = (
+				06CB5A85192B5943005BE4F5 /* CCBEXProgressTimer-Info.plist */,
+				06CB5A86192B5943005BE4F5 /* CCBEXProgressTimer-Prefix.pch */,
+				06CB5A87192B5943005BE4F5 /* CCBPEXProgressTimer.h */,
+				06CB5A88192B5943005BE4F5 /* CCBPEXProgressTimer.m */,
+				06CB5A89192B5943005BE4F5 /* CCBPProperties.plist */,
+				06CB5A8A192B5943005BE4F5 /* InfoPlist.strings */,
+				06CB5A8C192B5943005BE4F5 /* Icon.png */,
+			);
+			path = CCBEXProgressTimer;
 			sourceTree = "<group>";
 		};
 		06DD539218CDD508008A1AA3 /* cocos2d */ = {
@@ -2899,6 +2945,7 @@
 				0645216118D318B50094CF05 /* CCBEXTextField.ccbPlugNode */,
 				06211BD018D830A900898506 /* CCBEXUILayer.ccbPlugNode */,
 				06EDA3EA18DF24E900AB02EB /* CCBEXClippingNode.ccbPlugNode */,
+				06D37E07192B370100BD1579 /* CCBEXProgressTimer.ccbPlugNode */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -4350,6 +4397,23 @@
 			productReference = 0645216118D318B50094CF05 /* CCBEXTextField.ccbPlugNode */;
 			productType = "com.apple.product-type.bundle";
 		};
+		06D37DFA192B370100BD1579 /* CCBEXProgressTimer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 06D37E04192B370100BD1579 /* Build configuration list for PBXNativeTarget "CCBEXProgressTimer" */;
+			buildPhases = (
+				06D37DFB192B370100BD1579 /* Sources */,
+				06D37DFD192B370100BD1579 /* Frameworks */,
+				06D37DFF192B370100BD1579 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CCBEXProgressTimer;
+			productName = CCSprite;
+			productReference = 06D37E07192B370100BD1579 /* CCBEXProgressTimer.ccbPlugNode */;
+			productType = "com.apple.product-type.bundle";
+		};
 		06EDA3DD18DF24E900AB02EB /* CCBEXClippingNode */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06EDA3E718DF24E900AB02EB /* Build configuration list for PBXNativeTarget "CCBEXClippingNode" */;
@@ -4382,6 +4446,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				06D37E1A192B3DC800BD1579 /* PBXTargetDependency */,
 				06EDA3F818DF272400AB02EB /* PBXTargetDependency */,
 				06211BE318D8311900898506 /* PBXTargetDependency */,
 				0645217D18D31D710094CF05 /* PBXTargetDependency */,
@@ -4746,6 +4811,7 @@
 				0645215618D318B50094CF05 /* CCBEXTextField */,
 				06211BC318D830A900898506 /* CCBEXUILayer */,
 				06EDA3DD18DF24E900AB02EB /* CCBEXClippingNode */,
+				06D37DFA192B370100BD1579 /* CCBEXProgressTimer */,
 			);
 		};
 /* End PBXProject section */
@@ -4805,6 +4871,17 @@
 				0645217618D31D590094CF05 /* CCBEXTextField-Info.plist in Resources */,
 				0645217818D31D590094CF05 /* InfoPlist.strings in Resources */,
 				0645217718D31D590094CF05 /* CCBPProperties.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06D37DFF192B370100BD1579 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CB5A91192B5943005BE4F5 /* Icon.png in Resources */,
+				06CB5A8D192B5943005BE4F5 /* CCBEXProgressTimer-Info.plist in Resources */,
+				06CB5A90192B5943005BE4F5 /* InfoPlist.strings in Resources */,
+				06CB5A8F192B5943005BE4F5 /* CCBPProperties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5262,6 +5339,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0645218618D329960094CF05 /* CCBPEXTextField.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		06D37DFB192B370100BD1579 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				06CB5A8E192B5943005BE4F5 /* CCBPEXProgressTimer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5744,6 +5829,11 @@
 			target = 0645215618D318B50094CF05 /* CCBEXTextField */;
 			targetProxy = 0645217C18D31D710094CF05 /* PBXContainerItemProxy */;
 		};
+		06D37E1A192B3DC800BD1579 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 06D37DFA192B370100BD1579 /* CCBEXProgressTimer */;
+			targetProxy = 06D37E19192B3DC800BD1579 /* PBXContainerItemProxy */;
+		};
 		06EDA3F818DF272400AB02EB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 06EDA3DD18DF24E900AB02EB /* CCBEXClippingNode */;
@@ -5857,6 +5947,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				0645217418D31D590094CF05 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		06CB5A8A192B5943005BE4F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				06CB5A8B192B5943005BE4F5 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -6170,6 +6268,56 @@
 					dynamic_lookup,
 				);
 				PRODUCT_NAME = CCBEXTextField;
+				WRAPPER_EXTENSION = ccbPlugNode;
+			};
+			name = Release;
+		};
+		06D37E05192B370100BD1579 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCBEX/CCBEXProgressTimer/CCBEXProgressTimer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "CCBEX/CCBEXProgressTimer/CCBEXProgressTimer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = CCBEXProgressTimer;
+				WRAPPER_EXTENSION = ccbPlugNode;
+			};
+			name = Debug;
+		};
+		06D37E06192B370100BD1579 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CCBEX/CCBEXProgressTimer/CCBEXProgressTimer-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "CCBEX/CCBEXProgressTimer/CCBEXProgressTimer-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-undefined",
+					dynamic_lookup,
+				);
+				PRODUCT_NAME = CCBEXProgressTimer;
 				WRAPPER_EXTENSION = ccbPlugNode;
 			};
 			name = Release;
@@ -7215,6 +7363,15 @@
 			buildConfigurations = (
 				0645215F18D318B50094CF05 /* Debug */,
 				0645216018D318B50094CF05 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		06D37E04192B370100BD1579 /* Build configuration list for PBXNativeTarget "CCBEXProgressTimer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				06D37E05192B370100BD1579 /* Debug */,
+				06D37E06192B370100BD1579 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
