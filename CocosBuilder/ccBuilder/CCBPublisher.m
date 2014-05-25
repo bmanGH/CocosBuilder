@@ -442,6 +442,7 @@
                     // Make conversion rules for audio
                     NSString* newFormat = NULL;
                     
+                    /*
                     if ([ext isEqualToString:@"wav"])
                     {
                         if (targetType == kCCBPublisherTargetTypeIPhone)
@@ -457,6 +458,7 @@
                             newFormat = @"ogg";
                         }
                     }
+                    */
                     /*
                     else if ([ext isEqualToString:@"mp3"])
                     {
