@@ -4,3 +4,6 @@
 [submodule "CocosBuilder/libs/Fragaria"]
 	path = CocosBuilder/libs/Fragaria
 	url = https://github.com/vlidholt/Fragaria.git
+[submodule "CocosBuilder/libs/cocos2d-iphone"]
+	path = CocosBuilder/libs/cocos2d-iphone
+	url = https://github.com/cocos2d/cocos2d-iphone-classic.git
